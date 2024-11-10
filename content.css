@@ -1,0 +1,30 @@
+/**
+ * 2024 Frey Husted
+ * https://github.com/FreyHK
+ */
+
+#boostUpButton, #boostResetButton {
+    text-size-adjust: none;
+        font-family: Segoe UI,Helvetica,sans-serif;
+        color: #464646;
+        line-height: normal;
+        user-select: none;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 0;
+        padding: 0;
+        display: table-cell;
+        vertical-align: middle;
+        position: relative;
+        width: 40px;
+        overflow: hidden;
+        height: 44px;
+}
+
+#boostUpButton {
+    width: 80px;
+}
+
+#boostUpButton:hover, #boostResetButton:hover {
+    background-color: #E5E5E5;
+}
