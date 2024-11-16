@@ -9,31 +9,21 @@ const gainNode = audioContext.createGain();
 function createBoostControls () {
     boostUpBtn = document.createElement("div");
     boostUpBtn.id = 'boostUpButton';
-    boostUpBtn.innerText = '🗣️🔊🔥';
+    boostUpBtn.innerText = '🗣️⬆️';
     boostUpBtn.addEventListener('click', increaseGain);
 
-    resetBtn = document.createElement("div");
-    resetBtn.id = 'boostResetButton';
-    resetBtn.innerText = '🔄';
-    resetBtn.addEventListener('click', resetGain);
-
     const captionsBtn = document.querySelector("#captionsButton");
-    document.querySelector("div#transportControls").insertBefore(resetBtn, captionsBtn);
-    document.querySelector("div#transportControls").insertBefore(boostUpBtn, resetBtn);
+    document.querySelector("div#transportControls").insertBefore(boostUpBtn, captionsBtn);
 }
 
-const maxGain = 256;
-const gainMultiplier = 2;
+let multLevel = 0;
+const maxMultLevel = 9;
 
 function increaseGain() {
-    let newGain = gainNode.gain.value == 1 ? 2 : Math.min(gainNode.gain.value * gainMultiplier, maxGain);
+    multLevel = (multLevel + 1) % maxMultLevel;
+    let newGain = Math.pow(2, multLevel);
     gainNode.gain.value = newGain;
-    alert(`Increased gain to ${newGain}x\n🗣️🗣️🔥🔥🔥🆙🆙`);
-}
-
-function resetGain() {
-    gainNode.gain.value = 1;
-    alert(`Reset gain to default.`);
+    document.querySelector('#boostUpButton').innerText = `🗣️${newGain}×`;
 }
 
 const videoElement = document.querySelector("video#primaryVideo")

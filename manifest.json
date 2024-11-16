@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Panopto Volume Boost",
-    "version": "1.0",
+    "version": "0.1",
     "description": "Extension to boost volume of Panopto videos",
     "permissions": ["activeTab", "scripting"],
     "content_scripts": [
